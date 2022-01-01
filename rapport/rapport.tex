@@ -1,25 +1,105 @@
 \documentclass[11pt,a4paper]{article}
-
 \usepackage{classeRapport}
+\usepackage{float}
+\usepackage{algorithme}
+\usepackage{listings}
+
 
 \begin{document}
 
-\PageDeGarde	
-{rien.png} 
-{Correcteur Orthographique} 
-{Project algorithmique} 
-{\textbf{Ze Team} \\
-Mohamed Mamoun \textsc{IBN-ABDELJALIL}\\
-Romain \textsc{PETITALOT}\\
-Aymane \textsc{SAHILI}\\
-Lucile \textsc{BRUGIERE}\\} 
-{ITI3 - 2021}
+    \PageDeGarde	
+    {rien.png} 
+    {Correcteur Orthographique} 
+    {Project algorithmique} 
+    {\textbf{Ze Team} \\
+    Mohamed Mamoun \textsc{IBN-ABDELJALIL}\\
+    Romain \textsc{PETITALOT}\\
+    Aymane \textsc{SAHILI}\\
+    Lucile \textsc{BRUGIERE}\\} 
+    {ITI3 - 2021}
+    
+    \Page{INSALogo}{rien.png} 
+    
+    \tableofcontents
+    
+    \clearpage
+    \section*{Introduction}
+    \addcontentsline{toc}{section}{Introduction}
+        
+     \clearpage 
+     
+    \section{Analyse}
+        \subsection{Analyse descendante}
+        
+        \subsection{Présentation des TAD}
+    
+                \input{TAD/TAD_Mot}
+                \input{TAD/TAD_Correcteur}
+                \input{TAD/TAD_Dictionnaire}
+                \clearpage
 
-\Page{INSALogo}{rien.png} 
+    \section{Conception préliminaire}
+        \input{ConceptionPreliminaire/CP_Main}
+        \clearpage
 
+        \input{ConceptionPreliminaire/CP_Mot}
+        \clearpage
 
-\tableofcontents
+        \input{ConceptionPreliminaire/CP_Dictionnaire}
+        \clearpage
 
+        \input{ConceptionPreliminaire/CP_Correcteur}
+        \clearpage
+
+    \section{Conception détaillée}
+        \clearpage
+        
+        \input{ConceptionDetaillee/CD_Mot}
+        \clearpage
+        
+        \input{ConceptionDetaillee/CD_Dictionnaire}
+        \clearpage
+        
+        \input{ConceptionDetaillee/CD_Correcteur}
+        \clearpage
+    \section{Code C}
+        \subsection{Programme}
+                \subsubsection{Main}
+                \lstinputlisting[language=C]{CodeC/main.c}
+
+                \clearpage
+                \subsubsection{Mot}
+                \lstinputlisting[language=C]{CodeC/mot.c}
+                
+                \clearpage
+                \subsubsection{Dictionnaire}
+                \lstinputlisting[language=C]{CodeC/dictionnaire.c}
+                
+                \clearpage
+                \subsubsection{Correcteur}
+                \lstinputlisting[language=C]{CodeC/correcteur.c}
+                
+                \clearpage
+        \subsection{Test Unitaires}
+        \lstinputlisting[language=C]{CodeC/tests.c}
+        
+        \clearpage    
+    \section*{Conclusion}
+    \addcontentsline{toc}{section}{Conclusion}
+        \subsection*{Grille de répartition des tâches}
+        \addcontentsline{toc}{subsection}{Répartition des tâches}
+        
+         \begin{center}
+            \begin{tabular}{ | l | l | l | l | } \hline
+                & Conception Préliminaire & Conception Détaillé & Code \\ \hline
+                Mot & & & \\ \hline
+                Dictionnaire &  & & \\ \hline
+                Correcteur  &  & & \\ \hline
+                Main &  & & \\ \hline
+                Débugage &  & & \\ \hline
+                Tests Unitaires &  & & \\ \hline
+                Rapport &  & & \\ \hline
+            \end{tabular}
+        \end{center}
 
 \end{document}
-
