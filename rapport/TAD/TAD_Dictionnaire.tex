@@ -1,0 +1,29 @@
+\subsubsection{Dictionnaire}
+
+   
+    \begin{tad}
+        \tadNom{Dictionnaire}
+        \tadDependances{Mot,Fichier}
+        
+        \begin{tadOperations}{dictionnaire}
+            \tadOperation{creerArbre}{FichierTexte x Dictionnaire}{\tadUnParam{Dictionnaire}}
+            \tadOperation{initialiserNoeud}{Mot x Dictionnaire}{\tadUnParam{Dictionnaire}}
+            \tadOperation{inserer}{Mot x Dictionnaire}{\tadUnParam{Dictionnaire}}
+            \tadOperation{sauvegarderDico}{Dictionnaire x FichierTexte}{\tadUnParam{FichierTexte}}
+            \tadOperation{lireDico}{FichierTexte x Dictionnaire}{\tadUnParam{Dictionnaire}}
+        \end{tadOperations}
+        
+        \begin{tadSemantiques}{dictionnaire}
+            
+            \tadSemantique{creerDico}{Crée le dictionnaire à partir d'un fichier contenant des mots corrects ligne par ligne}
+            \tadSemantique{initialiserNoeud}{initialiser un dictionnaire à partir d'un dictionnaire vide et d'un mot}
+            \tadSemantique{inserer}{Inserer un mot dans l'arbre}
+            \tadSemantique{sauvegarderDico}{Stocke le dictionnaire dans un fichier}
+            \tadSemantique{lireDico}{Charge le dictionnaire à partir du fichier où le dictionnaire a été enregistré}
+        \end{tadSemantiques}
+
+        \begin{tadAxiomes}
+            \tadAxiome{creerArbre(Fichier,Dictionnaire) =  lireDico(sauvegarderDico(creerArbre(Fichier,Dictionnaire)))}
+        \end{tadAxiomes}            
+
+    \end{tad}
