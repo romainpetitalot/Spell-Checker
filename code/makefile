@@ -10,6 +10,9 @@ EXEC= itispell
 all :  $(BINDIR)/$(EXEC)
 
 
+tests: $(SRCDIR)/tests.o $(SRCDIR)/mot.o $(SRCDIR)/dictionnaire.o $(SRCDIR)/correcteur.o
+	gcc -o $(TESTDIR)/testUnitItispell $(SRCDIR)/tests.o $(SRCDIR)/mot.o $(SRCDIR)/dictionnaire.o $(SRCDIR)/correcteur.o  -lcunit
+
 $(SRCDIR)/%.o : $(SRCDIR)/%.c
 	$(CC) -o $@ -c $< $(CFLAGS) 
 
