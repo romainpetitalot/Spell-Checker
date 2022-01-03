@@ -1,10 +1,30 @@
+/**
+ * \file correcteur.c
+ * \brief correcteur.c de l'itispell.
+ * \author Romain Petitalot
+ * \version 2.0
+ * \date 03/01/2022
+ *
+ * Programme qui permet de recherche si un mot est présent et de chercher des correspondances dans le cas contraire
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "correcteur.h"
 
-
+/**
+ * \brief Procédure qui recherche des correspondances avec la chaine donnée
+ *
+ * \param[in] noeud  Noeud dans lequel on cherche
+ * \param[in] chaine  chaine qu'on cherche à corriger
+ * \param[in] tolerance  La tolerance d'opération entre les 2 chaines de caractères qu'on va comparer
+ * \param[in] counter  Le nombre de résultat qu'on a déjà trouver
+ * \param[in/out] res  La chaine dans laquelle on stocke les résultats
+ * 
+ */
 void rechercheMotRecur(Noeud *noeud, char *chaine, int tolerance, int *counter, char *res) 
 {
     if (noeud == NULL)
@@ -42,7 +62,14 @@ void rechercheMotRecur(Noeud *noeud, char *chaine, int tolerance, int *counter, 
     }
 }
 
-
+/**
+ * \brief Procédure qui initialise la recherche pour un mot donné
+ *
+ * \param[in] noeud  Noeud dans lequel on commence à chercher
+ * \param[in] mot  Mot qu'on cherche à corriger
+ * \param[in] toleranceMax  La tolerance maximale d'opération
+ * 
+ */
 void rechercheMot(Noeud *noeud, Mot mot, int toleranceMax)
 {
     int tolerance = 1;
@@ -76,6 +103,13 @@ void rechercheMot(Noeud *noeud, Mot mot, int toleranceMax)
 }
 
 
+/**
+ * \brief Fonction qui recherche si un mot est présent dans le dictionnaire
+ *
+ * \param[in] noeud  Noeud dans lequel on commence à chercher
+ * \param[in] mot  Mot qu'on cherche à prouver la présence
+ * \return Vrai si le mot est présent sinon Faux
+ */
 int estPresent(Noeud *noeud, char *chaine)
 {
     char *motAccentue=transformeAccentPourLev(chaine);

@@ -1,3 +1,15 @@
+/**
+ * \file main.c
+ * \brief main.c de l'itispell.
+ * \author Romain Petitalot
+ * \version 2.0
+ * \date 03/01/2022
+ *
+ * Programme proposant une correction orthographique de l'entrée standard
+ *
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +19,12 @@
 #include "dictionnaire.h"
 #include "correcteur.h"
 
-
+/**
+ * \brief Affiche l'aide lorsque le programme est lancé sans option, ou avec l’option -h, ou avec une option non reconnue
+ *
+ * \param 
+ * \return
+ */
 void afficherAide()
 {
     printf("Aide de itispell :\n");

@@ -1,3 +1,14 @@
+/**
+ * \file tests.c
+ * \brief Tests unitaires de l'itispell.
+ * \author Mohammed Mamoun Ibn-abdeljalil
+ * \version 1.0
+ * \date 03/01/2022
+ *
+ * Programme qui permet de réaliser les tests unitaires liés à l'itispell
+ *
+ */
+
 #include <CUnit/Basic.h>
 #include <stdlib.h>
 #include <stdio.h>

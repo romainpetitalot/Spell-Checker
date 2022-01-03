@@ -1,10 +1,26 @@
+/**
+ * \file mot.c
+ * \brief mot.c de l'itispell.
+ * \author Mohammed Mamoun Ibn-abdeljalil
+ * \version 2.0
+ * \date 03/01/2022
+ *
+ * Programme qui permet de lire l'entrée standard et permet de recherche et d'afficher correctement les mots avec des caractères spéciaux
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "mot.h"
 
-
+/**
+ * \brief Permet de vider le buffer si trop de caractères sont rentrés.
+ *
+ * \param 
+ * \return
+ */
 void viderBuffer()
 {
     int c = 0;
@@ -12,6 +28,12 @@ void viderBuffer()
         c = getchar();
 }
 
+/**
+ * \brief Procédure qui permet de lire l'entrée standard
+ *
+ * \param[in/out] chaine  La chaine qui va stocker l'entrée standard
+ * \param[in] longueur  La longueur maximale de la chaine
+ */
 void lire(char *chaine, int longueur)
 {
     char *positionEntree = NULL;
@@ -26,6 +48,14 @@ void lire(char *chaine, int longueur)
 }
 
 
+/**
+ * \brief Procédure qui est utilisée lorsqu'on veut tranformer les accents d'une chaine de caractères, elle permet d'insérer un caractère dans une chaine
+ *
+ * \param[in/out] chaine  La chaine à transformer
+ * \param[in] insert  Le caractère à insérer
+ * \param[in] pos  La position dans la chaine à laquelle on va insérer le caractère 
+ * 
+ */
 void transformeAccentPourAffichage(char motInitial[], const char insert, int pos)
 {
     char insertChaine[2];
@@ -45,6 +75,12 @@ void transformeAccentPourAffichage(char motInitial[], const char insert, int pos
 }
 
 
+/**
+ * \brief Procédure qui est utilisée lorsqu'on veut tranformer les accents d'une chaine de caractères, elle permet d'avoir la bonne valeur ASCII pour avoir un bon affichage
+ *
+ * \param[in/out] chaine  La chaine à transformer
+ * 
+ */
 char *transformeAccentPourLev(char* mot)
 { 
 	int i = 0;

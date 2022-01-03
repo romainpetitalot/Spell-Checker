@@ -1,10 +1,27 @@
+/**
+ * \file dictionnaire.c
+ * \brief dictionnaire.c de l'itispell.
+ * \author Romain Petitalot
+ * \version 2.0
+ * \date 03/01/2022
+ *
+ * Programme permet de créer, sauvegarder et charger un dictionnaire
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "dictionnaire.h"
 
-
+/**
+ * \brief Fonction qui renvoie le minimum entre 2 entiers
+ *
+ * \param[in] a  premier entier
+ * \param[in] b  deuxième entier
+ * \return Le minimum entre 2 entiers
+ */
 int min(int a, int b)
 {
     if (a<b)
@@ -12,6 +29,13 @@ int min(int a, int b)
     return b;
 }
 
+/**
+ * \brief Fonction qui renvoie le maximum entre 2 entiers
+ *
+ * \param[in] a  premier entier
+ * \param[in] b  deuxième entier
+ * \return Le maximum entre 2 entiers
+ */
 int max(int a, int b)
 { 
     if (a>b)
@@ -19,11 +43,27 @@ int max(int a, int b)
     return b;
 }
 
+/**
+ * \brief Fonction qui renvoie le minimum entre 3 entiers
+ *
+ * \param[in] a  premier entier
+ * \param[in] b  deuxième entier
+ * \param[in] c  troisième entier
+ * \return Le minimum entre 3 entiers
+ */
 int min3(int a, int b,int c)
 { 
     return min(a,min(b,c));
 }
 
+
+/**
+ * \brief Fonction qui renvoie la distance de Damerau-Levenshtein entre 2 chaines de caractères
+ *
+ * \param[in] chaine1  première chaine
+ * \param[in] chaine2  deuxième chaine
+ * \return La distance
+ */
 int lev(char chaine1[],char chaine2[])
 {
     int taille_s1 = strlen(chaine1);
@@ -65,7 +105,12 @@ int lev(char chaine1[],char chaine2[])
 }
 
 
-
+/**
+ * \brief Procédure qui initialise la chaine et les enfants d'un noeud
+ *
+ * \param[in/out] noeud  Le noeud qu'on initialise 
+ * \param[in] chaine La chaine qu'on va stocker dans le noeud
+ */
 void initialiserNoeud(Noeud **noeud, char *chaine) 
 {
 	int i = 0;
@@ -74,7 +119,12 @@ void initialiserNoeud(Noeud **noeud, char *chaine)
   		(*noeud)->enfants[i] = NULL;
 }
 
-
+/**
+ * \brief Procédure qui insère une chaine de caractères dans le dictionnaire
+ *
+ * \param[in] chaine  La chaine qu'on insère
+ * \param[in/out] noeud  Le noeud qu'on modifié
+ */
 void inserer(char *chaine, Noeud **noeud) 
 {
 	if(*noeud == NULL) 
@@ -87,6 +137,13 @@ void inserer(char *chaine, Noeud **noeud)
 	inserer(chaine, &((*noeud)->enfants[ld]));
 }
 
+
+/**
+ * \brief Procédure qui créé un Dictionnaire à partir d'un fichier texte
+ *
+ * \param[in/out] noeud  La racine du dictionnaire
+ * \param[in] filename  Le nom du fichier texte
+ */
 void creerDico(Noeud **noeud, char *filename)
 {
     FILE * fp;
@@ -97,6 +154,13 @@ void creerDico(Noeud **noeud, char *filename)
     fclose(fp);
 }
 
+
+/**
+ * \brief Procédure qui un noeud du dictionnaire
+ *
+ * \param[in/out] noeud  Le noeud qui va stocker la chaine de caractère
+ * \param[in] fichier  Le fichier texte qui stocke le dictionnaire préalablement enregistré
+ */
 void lireDicoRecur(Noeud **noeud, FILE *fichier)
 {
     char *mot;
@@ -133,6 +197,13 @@ void lireDicoRecur(Noeud **noeud, FILE *fichier)
     } 
 }
 
+
+/**
+ * \brief Procédure qui commence la lecture du dictionnaire à partir d'un fichier texte où a été enregistré préalablement le dictionnaire 
+ *
+ * \param[in] noeud  La racine du dictionnaire
+ * \param[in] filename Le nom du fichier texte
+ */
 void lireDico(Noeud **noeud, char *filename)
 {
     FILE* fichier = NULL;
@@ -144,6 +215,13 @@ void lireDico(Noeud **noeud, char *filename)
 }
 
 
+
+/**
+ * \brief Procédure qui sauvergarde un noeud dans un fichier texte
+ *
+ * \param[in] noeud  Le noeud qu'on va sauvegarder
+ * \param[in/out] fichier  Le fichier texte qui stocke le noeud
+ */
 void sauvegarderDicoRecur(Noeud *noeud, FILE *fichier)
 { 
     if (noeud==NULL)
@@ -157,6 +235,13 @@ void sauvegarderDicoRecur(Noeud *noeud, FILE *fichier)
     }
 }
 
+
+/**
+ * \brief Procédure qui commence la sauvegarde du dictionnaire préalablement créé
+ *
+ * \param[in] noeud  La racine du dictionnaire qu'on va sauvegarder
+ * \param[in] filename  Le nom de fichier qui va servir de sauvegarde
+ */
 void sauvegarderDico(Noeud *noeud, char *filename)
 {
     FILE* fichier = NULL;
@@ -168,6 +253,11 @@ void sauvegarderDico(Noeud *noeud, char *filename)
 }
 
 
+/**
+ * \brief Procédure qui libère un noeud
+ *
+ * \param[in] noeud  Le noeud qu'on va libérer
+ */
 void libererDicoRecur(Noeud *noeud)
 {
     if (noeud!=NULL)
@@ -179,6 +269,12 @@ void libererDicoRecur(Noeud *noeud)
     }
 }
 
+
+/**
+ * \brief Procédure qui libère le dictionnaire qu'on a alloué dynamiquement
+ *
+ * \param[in] noeud  La racine du dictionnaire qu'on va libérer
+ */
 void libererDico(Noeud *noeud)
 {
     libererDicoRecur(noeud);

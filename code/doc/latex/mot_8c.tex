@@ -1,0 +1,112 @@
+\hypertarget{mot_8c}{}\doxysection{Référence du fichier mot.\+c}
+\label{mot_8c}\index{mot.c@{mot.c}}
+
+
+\mbox{\hyperlink{mot_8c}{mot.\+c}} de l\textquotesingle{}itispell.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}mot.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de mot.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{mot_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mot_8c_a294587294111bfede1e11bdf876b6d10}{vider\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Permet de vider le buffer si trop de caractères sont rentrés. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mot_8c_a5e81415255a0122e2db770a109d03732}{lire}} (char $\ast$chaine, int longueur)
+\begin{DoxyCompactList}\small\item\em Procédure qui permet de lire l\textquotesingle{}entrée standard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mot_8c_a5c06090bc333544bfeb3213a363dcf19}{transforme\+Accent\+Pour\+Affichage}} (char mot\+Initial\mbox{[}$\,$\mbox{]}, const char insert, int pos)
+\begin{DoxyCompactList}\small\item\em Procédure qui est utilisée lorsqu\textquotesingle{}on veut tranformer les accents d\textquotesingle{}une chaine de caractères, elle permet d\textquotesingle{}insérer un caractère dans une chaine. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{mot_8c_a0d383460f74b07225e2dfcf056fcdd77}{transforme\+Accent\+Pour\+Lev}} (char $\ast$mot)
+\begin{DoxyCompactList}\small\item\em Procédure qui est utilisée lorsqu\textquotesingle{}on veut tranformer les accents d\textquotesingle{}une chaine de caractères, elle permet d\textquotesingle{}avoir la bonne valeur A\+S\+C\+II pour avoir un bon affichage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\mbox{\hyperlink{mot_8c}{mot.\+c}} de l\textquotesingle{}itispell. 
+
+\begin{DoxyAuthor}{Auteur}
+Mohammed Mamoun Ibn-\/abdeljalil 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+03/01/2022
+\end{DoxyDate}
+Programme qui permet de lire l\textquotesingle{}entrée standard et permet de recherche et d\textquotesingle{}afficher correctement les mots avec des caractères spéciaux 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{mot_8c_a5e81415255a0122e2db770a109d03732}\label{mot_8c_a5e81415255a0122e2db770a109d03732}} 
+\index{mot.c@{mot.c}!lire@{lire}}
+\index{lire@{lire}!mot.c@{mot.c}}
+\doxysubsubsection{\texorpdfstring{lire()}{lire()}}
+{\footnotesize\ttfamily void lire (\begin{DoxyParamCaption}\item[{char $\ast$}]{chaine,  }\item[{int}]{longueur }\end{DoxyParamCaption})}
+
+
+
+Procédure qui permet de lire l\textquotesingle{}entrée standard. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+ & {\em \mbox{[}in/out\mbox{]}} & chaine La chaine qui va stocker l\textquotesingle{}entrée standard \\
+\hline
+\mbox{\texttt{ in}}  & {\em longueur} & La longueur maximale de la chaine \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mot_8c_a5c06090bc333544bfeb3213a363dcf19}\label{mot_8c_a5c06090bc333544bfeb3213a363dcf19}} 
+\index{mot.c@{mot.c}!transformeAccentPourAffichage@{transformeAccentPourAffichage}}
+\index{transformeAccentPourAffichage@{transformeAccentPourAffichage}!mot.c@{mot.c}}
+\doxysubsubsection{\texorpdfstring{transformeAccentPourAffichage()}{transformeAccentPourAffichage()}}
+{\footnotesize\ttfamily void transforme\+Accent\+Pour\+Affichage (\begin{DoxyParamCaption}\item[{char}]{mot\+Initial\mbox{[}$\,$\mbox{]},  }\item[{const char}]{insert,  }\item[{int}]{pos }\end{DoxyParamCaption})}
+
+
+
+Procédure qui est utilisée lorsqu\textquotesingle{}on veut tranformer les accents d\textquotesingle{}une chaine de caractères, elle permet d\textquotesingle{}insérer un caractère dans une chaine. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+ & {\em \mbox{[}in/out\mbox{]}} & chaine La chaine à transformer \\
+\hline
+\mbox{\texttt{ in}}  & {\em insert} & Le caractère à insérer \\
+\hline
+\mbox{\texttt{ in}}  & {\em pos} & La position dans la chaine à laquelle on va insérer le caractère \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mot_8c_a0d383460f74b07225e2dfcf056fcdd77}\label{mot_8c_a0d383460f74b07225e2dfcf056fcdd77}} 
+\index{mot.c@{mot.c}!transformeAccentPourLev@{transformeAccentPourLev}}
+\index{transformeAccentPourLev@{transformeAccentPourLev}!mot.c@{mot.c}}
+\doxysubsubsection{\texorpdfstring{transformeAccentPourLev()}{transformeAccentPourLev()}}
+{\footnotesize\ttfamily char$\ast$ transforme\+Accent\+Pour\+Lev (\begin{DoxyParamCaption}\item[{char $\ast$}]{mot }\end{DoxyParamCaption})}
+
+
+
+Procédure qui est utilisée lorsqu\textquotesingle{}on veut tranformer les accents d\textquotesingle{}une chaine de caractères, elle permet d\textquotesingle{}avoir la bonne valeur A\+S\+C\+II pour avoir un bon affichage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \mbox{[}in/out\mbox{]}} & chaine La chaine à transformer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mot_8c_a294587294111bfede1e11bdf876b6d10}\label{mot_8c_a294587294111bfede1e11bdf876b6d10}} 
+\index{mot.c@{mot.c}!viderBuffer@{viderBuffer}}
+\index{viderBuffer@{viderBuffer}!mot.c@{mot.c}}
+\doxysubsubsection{\texorpdfstring{viderBuffer()}{viderBuffer()}}
+{\footnotesize\ttfamily void vider\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de vider le buffer si trop de caractères sont rentrés. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
