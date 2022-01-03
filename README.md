@@ -11,4 +11,7 @@ Dans le dossier code :
     make tests pour compiler les tests unitaires
 
 Dans le dossier rapport :
+
     make pour compiler le rapport en pdf
+
+Réalisé par le groupe Lucile Brugiere, Mohamed Mamoun Ibn-abdeljalil, Romain Petitalot et Aymane Sahili
