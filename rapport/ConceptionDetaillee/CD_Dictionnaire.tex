@@ -1,0 +1,145 @@
+\subsection{Pseudo Code du Dictionnaire}
+    
+    \begin{algorithme}    
+        \begin{enregistrement}{Noeud}
+            \champEnregistrement{chaine}{Chaine de Caractères}
+            \champEnregistrement{enfants}{tableau [1..30] de Noeud}
+        \end{enregistrement}
+    \end{algorithme}
+    
+    
+    \begin{algorithme}
+	\fonction
+	{min2}
+	{a:Entier, b:Entier}{\textbf{Entier}}
+	{}
+	{\sialors{a<b}{
+	{\retourner{a}}}
+	{\retourner{b}}
+	}\\
+    \end{algorithme}
+
+    \begin{algorithme}
+        \fonction
+        {min}
+        {a:Entier, b:Entier, c:Entier}{\textbf{Entier}}
+        {}
+        {\retourner{min2(a,min2(b,c))}}\\
+    \end{algorithme}
+    
+    \begin{algorithme}
+        \fonction{max}
+        {a:Entier, b:Entier}{\textbf{Entier}}
+        {}
+        {\sialors{a>b}{\retourner{a}}
+        {\retourner{b}}}\\
+    \end{algorithme}
+    
+    \begin{algorithme}
+        \fonctionAvecPreconditions{lev}
+        {chaine1 : Chaine de caractères, chaine2 : Chaine de caractères}{\textbf{Entier}}
+        {longueur(chaine1)<100 et longueur(chaine2)<100}
+        {taille\_s1,taille\_s2,i,j,coutSubstitution : Naturel,\\ 
+        mat : tableau[1..99][1..99] de Naturel}
+        {{\affecter{taille\_s1}{longueur(chaine1)}}
+        {\affecter{taille\_s2}{longueur(chaine2)}}
+        {\pour{i}{1}{taille\_s1}{}{\pour{j}{1}{taille\_s2}{}{\affecter{mat[i][j]}{0}}}
+        }
+        {\pour{i}{1}{taille\_s1}{}{\affecter{mat[i][1]}{i}}
+        }
+        {\pour{j}{1}{taille\_s2}{}{\affecter{mat[1][j]}{j}}
+        }
+        {\pour{i}{1}{taille\_s1}{}{\pour{j}{1}{taille\_s2}{}
+        {\sialorssinon{( chaine1[i-1]== chaine2[j-1] )}{
+        {\affecter{coutSubstitution}{0}}}
+        {\affecter{coutSubstitution}{1}}
+        }
+        {\affecter{mat[i][j]}{min(mat[i-1][j]+1,mat[i-1][j-1]+coutSubstitution,mat[i][j-1]+1)}}
+        {\sialors{( i>1 et j>1 et chaine1[i-1]==chaine2[j-2] et chaine1[i-2]==chaine2[j-1] )}
+        {{\affecter{mat[i][j]}{min2(mat[i][j],mat[i-2][j-2]+coutSubstitution)}}}
+        }
+        }
+        }
+        {\retourner{mat[taille\_s1][taille\_s2]}}
+        }\\
+    \end{algorithme}
+    
+    
+    \begin{algorithme}
+    	
+    	\procedure
+    	{initialiserNoeud}
+    	{\paramEntreeSortie {noeud : Noeud}; \paramEntree {chaine : Chaine de caractères}} 
+    	{i: Naturel}
+    	{
+    	{\affecter{noeud.chaine}{chaine}}
+        {\pour{i}{1}{maxEnfants}{}
+            {\affecter{noeud.enfants[i]}{NIL}
+        }
+        }
+        }\\
+    \end{algorithme}
+    
+    
+    \begin{algorithme}
+    	
+    	\procedure
+    	{inserer}
+    	{\paramEntreeSortie {noeud : Noeud}; \paramEntree {chaine : Chaine de caractères}} 
+    	{ld: Naturel}
+    	{
+    	\sialorssinon{(noeud = NIL)}{
+    	\instruction{initialiserNoeud(noeud,chaine)}}
+    	{\affecter{ld}{lev(noeud.chaine,chaine)}
+    	 \instruction{inserer(chaine,noeud.enfants[ld])}
+        }
+        }\\
+    \end{algorithme}
+    
+    
+    \begin{algorithme}
+    	\procedure
+    	{creerDico}
+    	{\paramEntreeSortie {noeud : Noeud}; \paramEntree {nom\_fichier : chaine de caractère}} 
+    	{chaine : Chaine de caractères, \\ f : FichierTexte}
+    	{
+    	\affecter{f}{ouvrirFichier(nom\_fichier,lecture)}
+    	{\instruction{lireLigne(f, chaine)}}
+        {\tantque{( chaine <> EOF  )}
+            {\instruction{inserer(noeud, chaine)}
+            {\instruction{lireLigne(f, chaine)}}}
+        }
+        {\instruction{fermerFichier(f)}}
+        }\\
+    \end{algorithme}
+    
+    \begin{algorithme}
+    	\procedure
+    	{sauvegarderDicoRecur}
+    	{\paramEntreeSortie {f : FichierTexte}; \paramEntree {noeud : Noeud}} 
+    	{i: Naturel}
+    	{\sialorssinon{noeud == NIL}{
+    	{\instruction{ecrireDansFichier(f,"\#")}}}
+    	{{\instruction{ecrireDansFichier(f, noeud.chaine)}}
+    	{\pour{i}{1}{maxEnfants}{}
+    	    {\instruction{sauvegarderDicoRecur(f, noeud.enfants[i])}
+    	    }
+    	}
+    	}
+        }\\
+    \end{algorithme}
+    
+    \begin{algorithme}
+    	\procedure
+    	{sauvegarderDico}
+    	{\paramEntree {nom\_fichier : chaine de caractère}; \paramEntree {noeud : Noeud}} 
+    	{f : FichierTexte}
+    	{
+    	\affecter{f}{ouvrirFichier(nom\_fichier,lecture)}
+    	{\instruction{sauvegarderDicoRecur(f, noeud)}}
+    	{\instruction{fermerFichier(f)}}
+    	}\\
+  	
+    \end{algorithme}
+    
+    
