@@ -1,0 +1,105 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{classeRapport}
+\usepackage{float}
+\usepackage{algorithmeUTF8}
+\usepackage{listings}
+
+
+\begin{document}
+
+    \PageDeGarde	
+    {rien.png} 
+    {Correcteur Orthographique} 
+    {Project algorithmique} 
+    {
+    \textbf{Groupe 3-3}\\
+    Lucile \textsc{BRUGIERE}\\
+    Mohamed Mamoun \textsc{IBN-ABDELJALIL}\\
+    Romain \textsc{PETITALOT}\\
+    Aymane \textsc{SAHILI}} 
+    {ITI3 - 2021}
+    
+    \Page{INSALogo}{rien.png}
+    
+    \clearpage 
+    
+    \tableofcontents
+    
+    \clearpage
+    \section{Introduction}
+    \addcontentsline{toc}{section}{Introduction}
+        Dans le cadre de nos études d'ingénieur, lors de notre première anée dans le département ITI, nous avons dû 
+    réaliser un projet avec pour but de concevoir un correcteur orthographique en C.\\
+        
+        Nous avons donc réaliser cela en utilisant le TAD FichierTexte proposé par nos professeurs et en créeant 3 autres 
+    TAD : Mot, Dictionnaire et Correcteur. Le principe de notre correcteur consiste à corriger l'ensemble des mots écrits sur l'entrée standard du terminal. La correction se fait par rapport à un dictionnaire donné par nos professeurs également.\\
+        
+        Notre correcteur est divisé en deux grandes parties. La première concerne la construction du type Dictionnaire à partir d'un dictionnaire.txt, la conception de ce dernier est basé sur la distance de Damerau-Levenshtein qui est une version amélioré de l'algorithme de levenshtein puisqu'elle prends en compte l'inversion de deux lettres successives également.Tant dis que la deuxième partie concerne la recherche de mot dans le dictionnaire c'est-à-dire les fonctions et procédures qui permettent le parcours de notre structure Dictionnaire.\\
+        
+        De plus, pour respecter les consignes données par nos professeurs, nous avons ajouté la possibilité de sauvegarde du dictionnaire et d'importation de ce dernier.\\
+        
+        Le GIT de notre projet était géré par Romain, notre Chef de projet.
+        
+     
+    \section{Analyse}
+        \subsection{Analyse descendante}
+            \subsubsection{Analyse descendante du correcteur}
+            \includegraphics{images/Analyse_Descendante_Correcteur.png}
+            \clearpage
+            \subsubsection{Analyse descendante du dictionnaire}
+            \includegraphics[scale=0.5]{images/Analyse_Descendante_Dictionnaire.png}
+            \clearpage
+        \subsection{Présentation des TAD}
+    
+                \input{TAD/TAD_Mot}
+                \input{TAD/TAD_Correcteur}
+                \input{TAD/TAD_Dictionnaire}
+                \clearpage
+
+    \section{Conception préliminaire}
+        \input{ConceptionPreliminaire/CP_Mot}
+
+        \input{ConceptionPreliminaire/CP_Dictionnaire}
+
+        \input{ConceptionPreliminaire/CP_Correcteur}
+        \clearpage
+
+    \section{Conception détaillée}
+        \input{ConceptionDetaillee/CD_Mot}
+        \clearpage
+        
+        \input{ConceptionDetaillee/CD_Dictionnaire}
+        \clearpage
+        
+        \input{ConceptionDetaillee/CD_Correcteur}
+        \clearpage
+        
+        
+    \section{Code C}
+        \input{CodeC/input}
+        \clearpage
+        
+    \section*{Conclusion}
+    \addcontentsline{toc}{section}{Conclusion}
+        \subsection*{Grille de répartition des tâches}
+        \addcontentsline{toc}{subsection}{Répartition des tâches}
+        
+         \begin{center}
+            \begin{tabular}{ | l | l | l | l | } \hline
+                & Conception Préliminaire & Conception Détaillé & Code \\ \hline
+                Mot & Lucile & Romain  & Mamoun \\ \hline
+                Dictionnaire & Lucile / Aymane & Mamoun & Romain \\ \hline
+                Correcteur  & Aymane & Mamoun & Romain \\ \hline
+                Main & Aymane & Mamoun / Aymane & Romain \\ \hline
+                Débugage &  & & Romain / Mamoun\\ \hline
+                Tests Unitaires & & & Mamoun  \\ \hline
+                Rapport & Aymane / Mamoun / Romain & &\\ \hline
+            \end{tabular}
+        \end{center}
+            Afin que l'organisation soit plus simple nous nous sommes attribués de façon équilibrée les diffèrentes tâches.\\
+            Cependant malgrès notre organisation, un des membres du projet était malade durant la majeur partie du semestre et n'a donc pas pû réaliser sa partie. Nous nous sommes donc retrouvés à 3 pour réaliser un projet assez volumineux.\\
+            Nous avons donc pensé à une façon optimale pour compenser ce manque dans notre effectif. Nous avons alors opter pour un dictionnaire représenté par un arbre n-aire. Cet arbre est construit de la manière suivante un mot est choisi aléatoirement dans le fichier dico.txt comme premier père, ensuite les fils sont déterminés en calculant leur distance de levenshtein par rapport à ce premier mot, c'est-à-dire le nombre de transformations appliquées à ce mot pour obtenir le père. Cette construction entre le noeud père et ses fils se fait pour chaque fils jusqu'à ce que tout l'arbre soit complété par tous les mots du dictionnaire.\\
+            Ce projet nous à vraiment permis de découvrir comment fonctionne le développement d'un programme informatique du début à la fin. Ensuite cela nous a permis d'améliorer notre utilisation de GIT, notre manière de nous organiser ainsi que notre maîtrise du C et du \LaTeX. \\     
+
+\end{document}
+

@@ -1,0 +1,108 @@
+\hypertarget{tests_8c}{}\doxysection{Référence du fichier tests.\+c}
+\label{tests_8c}\index{tests.c@{tests.c}}
+
+
+Tests unitaires de l\textquotesingle{}itispell.  
+
+
+{\ttfamily \#include $<$C\+Unit/\+Basic.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}mot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dictionnaire.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}correcteur.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de tests.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tests_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tests_8c_a046ae110cb54bf6347e6c7e90ed4665b}\label{tests_8c_a046ae110cb54bf6347e6c7e90ed4665b}} 
+int {\bfseries init\+\_\+suite\+\_\+success} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_abfa498f9ec4838c206c452de21ba0d61}\label{tests_8c_abfa498f9ec4838c206c452de21ba0d61}} 
+int {\bfseries clean\+\_\+suite\+\_\+success} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_aaac21af88090a53a8eeb9afcf4f718b7}\label{tests_8c_aaac21af88090a53a8eeb9afcf4f718b7}} 
+void {\bfseries test\+\_\+\+Minimum\+\_\+\+Deux\+\_\+\+Valeurs} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_a85c52a418ba84bf85f9e0c1f80e427b7}\label{tests_8c_a85c52a418ba84bf85f9e0c1f80e427b7}} 
+void {\bfseries test\+\_\+\+Minimum\+\_\+\+Trois\+\_\+\+Valeurs} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_af0e824ed101fbf743daa79ae9ff29684}\label{tests_8c_af0e824ed101fbf743daa79ae9ff29684}} 
+void {\bfseries test\+\_\+\+Maximum} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_a152a3b3abeb76d04c8407ef13f8c9b4e}\label{tests_8c_a152a3b3abeb76d04c8407ef13f8c9b4e}} 
+void {\bfseries test\+\_\+\+Distance1} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_aad28813f6c2af8c1cdff988e98d2ee41}\label{tests_8c_aad28813f6c2af8c1cdff988e98d2ee41}} 
+void {\bfseries test\+\_\+\+Distance2} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_ab6021faa9b0a68fcce15ad66cb0e7244}\label{tests_8c_ab6021faa9b0a68fcce15ad66cb0e7244}} 
+void {\bfseries test\+\_\+\+Distance3} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_a187a5a7484ef1ec31077eea88d4bf210}\label{tests_8c_a187a5a7484ef1ec31077eea88d4bf210}} 
+void {\bfseries test\+\_\+\+Distance4} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_aecd89a9d27812307cbc08d789679a7a8}\label{tests_8c_aecd89a9d27812307cbc08d789679a7a8}} 
+void {\bfseries test\+\_\+\+Distance5} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_ad11f6908fd1c196dc73ded98b7085efd}\label{tests_8c_ad11f6908fd1c196dc73ded98b7085efd}} 
+void {\bfseries test\+\_\+\+Creation\+\_\+\+Dico} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_acd35c4a4eb63bd0898f77ccbeacd5bdf}\label{tests_8c_acd35c4a4eb63bd0898f77ccbeacd5bdf}} 
+void {\bfseries test\+\_\+\+Inserer\+\_\+\+Mot1} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_aa40e2459a969e55b99ca0be188489d3b}\label{tests_8c_aa40e2459a969e55b99ca0be188489d3b}} 
+void {\bfseries test\+\_\+\+Inserer\+\_\+\+Mot2} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_a243a98a3aff7480c4355a7794b009861}\label{tests_8c_a243a98a3aff7480c4355a7794b009861}} 
+void {\bfseries test\+\_\+\+Est\+\_\+\+Dans\+\_\+\+Dico1} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_a01a4dcf47fdbda9bf95f65574b8ffb4a}\label{tests_8c_a01a4dcf47fdbda9bf95f65574b8ffb4a}} 
+void {\bfseries test\+\_\+\+Est\+\_\+\+Dans\+\_\+\+Dico2} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_a65fd61f7c45380c48a64c19dba283c88}\label{tests_8c_a65fd61f7c45380c48a64c19dba283c88}} 
+int {\bfseries test\+\_\+\+Dico\+\_\+\+Egaux\+\_\+\+Recur} (Noeud $\ast$racine1, Noeud $\ast$racine2)
+\item 
+\mbox{\Hypertarget{tests_8c_ad6ba6478b5f1f43c73d9d3d8867af5ac}\label{tests_8c_ad6ba6478b5f1f43c73d9d3d8867af5ac}} 
+void {\bfseries test\+\_\+\+Dico\+\_\+\+Egaux} (void)
+\item 
+\mbox{\Hypertarget{tests_8c_a56668ff4eb91dfdb9a7e7b18cf4af1b8}\label{tests_8c_a56668ff4eb91dfdb9a7e7b18cf4af1b8}} 
+void {\bfseries afficher\+Aide\+Test} ()
+\item 
+\mbox{\Hypertarget{tests_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{tests_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tests_8c_a609b71bba2b524decb7650d564758494}\label{tests_8c_a609b71bba2b524decb7650d564758494}} 
+Noeud $\ast$ {\bfseries racine\+Creer} = N\+U\+LL
+\item 
+\mbox{\Hypertarget{tests_8c_a356715566912d63587412e71658b97dd}\label{tests_8c_a356715566912d63587412e71658b97dd}} 
+Noeud $\ast$ {\bfseries racine\+Charger} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Tests unitaires de l\textquotesingle{}itispell. 
+
+\begin{DoxyAuthor}{Auteur}
+Mohammed Mamoun Ibn-\/abdeljalil 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+03/01/2022
+\end{DoxyDate}
+Programme qui permet de réaliser les tests unitaires liés à l\textquotesingle{}itispell 

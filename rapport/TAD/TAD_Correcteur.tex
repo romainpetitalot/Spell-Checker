@@ -1,0 +1,23 @@
+\subsubsection{Correcteur}
+
+   
+    \begin{tad}
+        \tadNom{Correcteur}
+        \tadDependances{Mot,Dictionnaire,entier,liste}
+        
+        \begin{tadOperations}{Mot}
+            \tadOperation{rechercheMot}{Mot x Dictionnaire x Entier}{\tadUnParam{Liste(Mot}}
+            \tadOperation{estPresent}{Mot x Dictionnaire}{\tadUnParam{Entier}}
+        \end{tadOperations}
+        
+        \begin{tadSemantiques}{dictionnaire}
+            
+            \tadSemantique{rechercheMot}{Cherche un mot dans le dictionnaire avec une limite donnée}
+            \tadSemantique{estPresent}{Vérifie si un mot est présent dans un dictionnaire donnée}
+        \end{tadSemantiques}
+
+        \begin{tadAxiomes}
+            \tadAxiome{}
+        \end{tadAxiomes}            
+
+    \end{tad}

@@ -1,0 +1,62 @@
+\subsection{Pseudo Code du Correcteur}
+    
+    \begin{algorithme}
+        \procedure{rechercheMotRecur}
+        {\paramEntreeSortie {res : Chaine de caractères}; \paramEntree {noeud : Noeud; chaine : Chaine de caractères; tolerance, counter : Naturel}}
+        {i,j : Naturel}
+        {\affecter{j}{lev(noeud.chaine,chaine)}
+        \sialors{(j=tolerance) et (counter<6+tolerance*4)}
+        {
+            {
+            \sialors{tolerance>0}
+            {
+                \instruction{concatChaine(res, noeud.chaine)}
+                \instruction{concatChaine(res, " ")}
+                
+            }
+            }
+            \affecter{counter}{counter + 1}
+        }
+        
+        {\sialors{counter < (6+tolerance*4)}
+            {\pour{i}{max(1, j - tolerance)}{min(maxEnfants, j + tolerance)}{} {\instruction{rechercheMotRecur(res,noeud.enfants[i],chaine,tolerance,counter)}
+        }
+        }
+        }
+        }
+    \end{algorithme}
+    
+    \begin{algorithme}
+        \procedure{rechercheMot}
+        {\paramEntree {noeud : Noeud, mot : Mot, toleranceMax : Naturel}}
+        {tolerance,counter : Naturel \\ motAccentue,res : Chaine de caractères}
+        {
+        {\affecter{tolerance}{1}}
+        {\affecter{counter}{0}}
+        {\affecter{motAccentue}{transformeAccentPourLev(mot.chaine)}}
+        {\affecter{res}{" "}}
+        {\tantque{( (tolerance<= toleranceMax) \&\& (counter < 14) )}
+        {\instruction{rechercheMotRecur(noeud,motAccentue,tolerance,counter,res)}}
+        {\affecter{tolerance}{tolerance + 1}}
+        }
+        {\sialors{counter == 0}
+        {\affecter{counter}{15}}
+        {\instruction{rechercheMotRecur(noeud,motAccentue,3,counter,res)}}
+        {\affecter{counter}{counter - 15}}
+        }
+        
+        }
+    \end{algorithme}
+
+    \begin{algorithme}
+        \fonction{estPresent}
+        {noeud : Noeud, chaine : Chaine de caractères}{\textbf{Booléen}}
+        {res : Chaine de caractères \\ counter : Naturel}
+        {
+        {\affecter{res}{" "}}
+        {\affecter{counter}{0}}
+        {\instruction{rechercheMotRecur(res, noeud, chaine, 0, counter)}}
+        \retourner{(counter = 1)}
+        }
+        
+    \end{algorithme}

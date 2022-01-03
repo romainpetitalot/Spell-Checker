@@ -1,0 +1,106 @@
+\hypertarget{correcteur_8c}{}\doxysection{Référence du fichier correcteur.\+c}
+\label{correcteur_8c}\index{correcteur.c@{correcteur.c}}
+
+
+\mbox{\hyperlink{correcteur_8c}{correcteur.\+c}} de l\textquotesingle{}itispell.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}correcteur.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de correcteur.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{correcteur_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{correcteur_8c_a18e992e0400e06ca6437750f1a2dd131}{recherche\+Mot\+Recur}} (Noeud $\ast$noeud, char $\ast$chaine, int tolerance, int $\ast$counter, char $\ast$res)
+\begin{DoxyCompactList}\small\item\em Procédure qui recherche des correspondances avec la chaine donnée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{correcteur_8c_a663ab817b32a8e06a5528cec9e0c887c}{recherche\+Mot}} (Noeud $\ast$noeud, Mot mot, int tolerance\+Max)
+\begin{DoxyCompactList}\small\item\em Procédure qui initialise la recherche pour un mot donné \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{correcteur_8c_a51409c2f8a3e6433e9bab69ebf04ea12}{est\+Present}} (Noeud $\ast$noeud, char $\ast$chaine)
+\begin{DoxyCompactList}\small\item\em Fonction qui recherche si un mot est présent dans le dictionnaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\mbox{\hyperlink{correcteur_8c}{correcteur.\+c}} de l\textquotesingle{}itispell. 
+
+\begin{DoxyAuthor}{Auteur}
+Romain Petitalot 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+03/01/2022
+\end{DoxyDate}
+Programme qui permet de recherche si un mot est présent et de chercher des correspondances dans le cas contraire 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{correcteur_8c_a51409c2f8a3e6433e9bab69ebf04ea12}\label{correcteur_8c_a51409c2f8a3e6433e9bab69ebf04ea12}} 
+\index{correcteur.c@{correcteur.c}!estPresent@{estPresent}}
+\index{estPresent@{estPresent}!correcteur.c@{correcteur.c}}
+\doxysubsubsection{\texorpdfstring{estPresent()}{estPresent()}}
+{\footnotesize\ttfamily int est\+Present (\begin{DoxyParamCaption}\item[{Noeud $\ast$}]{noeud,  }\item[{char $\ast$}]{chaine }\end{DoxyParamCaption})}
+
+
+
+Fonction qui recherche si un mot est présent dans le dictionnaire. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em noeud} & Noeud dans lequel on commence à chercher \\
+\hline
+\mbox{\texttt{ in}}  & {\em mot} & Mot qu\textquotesingle{}on cherche à prouver la présence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Vrai si le mot est présent sinon Faux 
+\end{DoxyReturn}
+\mbox{\Hypertarget{correcteur_8c_a663ab817b32a8e06a5528cec9e0c887c}\label{correcteur_8c_a663ab817b32a8e06a5528cec9e0c887c}} 
+\index{correcteur.c@{correcteur.c}!rechercheMot@{rechercheMot}}
+\index{rechercheMot@{rechercheMot}!correcteur.c@{correcteur.c}}
+\doxysubsubsection{\texorpdfstring{rechercheMot()}{rechercheMot()}}
+{\footnotesize\ttfamily void recherche\+Mot (\begin{DoxyParamCaption}\item[{Noeud $\ast$}]{noeud,  }\item[{Mot}]{mot,  }\item[{int}]{tolerance\+Max }\end{DoxyParamCaption})}
+
+
+
+Procédure qui initialise la recherche pour un mot donné 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em noeud} & Noeud dans lequel on commence à chercher \\
+\hline
+\mbox{\texttt{ in}}  & {\em mot} & Mot qu\textquotesingle{}on cherche à corriger \\
+\hline
+\mbox{\texttt{ in}}  & {\em tolerance\+Max} & La tolerance maximale d\textquotesingle{}opération \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{correcteur_8c_a18e992e0400e06ca6437750f1a2dd131}\label{correcteur_8c_a18e992e0400e06ca6437750f1a2dd131}} 
+\index{correcteur.c@{correcteur.c}!rechercheMotRecur@{rechercheMotRecur}}
+\index{rechercheMotRecur@{rechercheMotRecur}!correcteur.c@{correcteur.c}}
+\doxysubsubsection{\texorpdfstring{rechercheMotRecur()}{rechercheMotRecur()}}
+{\footnotesize\ttfamily void recherche\+Mot\+Recur (\begin{DoxyParamCaption}\item[{Noeud $\ast$}]{noeud,  }\item[{char $\ast$}]{chaine,  }\item[{int}]{tolerance,  }\item[{int $\ast$}]{counter,  }\item[{char $\ast$}]{res }\end{DoxyParamCaption})}
+
+
+
+Procédure qui recherche des correspondances avec la chaine donnée. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em noeud} & Noeud dans lequel on cherche \\
+\hline
+\mbox{\texttt{ in}}  & {\em chaine} & chaine qu\textquotesingle{}on cherche à corriger \\
+\hline
+\mbox{\texttt{ in}}  & {\em tolerance} & La tolerance d\textquotesingle{}opération entre les 2 chaines de caractères qu\textquotesingle{}on va comparer \\
+\hline
+\mbox{\texttt{ in}}  & {\em counter} & Le nombre de résultat qu\textquotesingle{}on a déjà trouver \\
+\hline
+ & {\em \mbox{[}in/out\mbox{]}} & res La chaine dans laquelle on stocke les résultats \\
+\hline
+\end{DoxyParams}
