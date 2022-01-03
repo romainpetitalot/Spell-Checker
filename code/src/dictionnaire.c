@@ -66,38 +66,38 @@ int lev(char chaine1[],char chaine2[])
 
 
 
-void initialiserNoeud(Noeud **node, char *chaine) 
+void initialiserNoeud(Noeud **noeud, char *chaine) 
 {
 	int i = 0;
-	strcpy((*node)->chaine, chaine);
+	strcpy((*noeud)->chaine, chaine);
 	for(i = 0; i < maxEnfants; i++)
-  		(*node)->enfants[i] = NULL;
+  		(*noeud)->enfants[i] = NULL;
 }
 
 
-void inserer(char *chaine, Noeud **node) 
+void inserer(char *chaine, Noeud **noeud) 
 {
-	if(*node == NULL) 
+	if(*noeud == NULL) 
     {
-  		*node = (Noeud *)malloc(sizeof(Noeud));
-  		initialiserNoeud(node, chaine);
+  		*noeud = (Noeud *)malloc(sizeof(Noeud));
+  		initialiserNoeud(noeud, chaine);
   		return;
 	}
-	int ld = lev((*node)->chaine, chaine);
-	inserer(chaine, &((*node)->enfants[ld]));
+	int ld = lev((*noeud)->chaine, chaine);
+	inserer(chaine, &((*noeud)->enfants[ld]));
 }
 
-void creerDico(Noeud **node, char *filename)
+void creerDico(Noeud **noeud, char *filename)
 {
     FILE * fp;
     fp = fopen(filename, "r");
-    char word[30];
-    while(fscanf(fp,"%s",word) != EOF)
-        inserer(word, node);
+    char chaine[30];
+    while(fscanf(fp,"%s",chaine) != EOF)
+        inserer(chaine, noeud);
     fclose(fp);
 }
 
-void lireDicoRecur(Noeud **node, FILE *fichier)
+void lireDicoRecur(Noeud **noeud, FILE *fichier)
 {
     char *mot;
     size_t n = 0;
@@ -112,14 +112,14 @@ void lireDicoRecur(Noeud **node, FILE *fichier)
             mot[n] = '\0';
             if (strcmp(mot,"#")>0)
             {
-                if(*node == NULL) 
+                if(*noeud == NULL) 
                 {
-                    *node = (Noeud *)malloc(sizeof(Noeud));
-                    initialiserNoeud(node, mot);
+                    *noeud = (Noeud *)malloc(sizeof(Noeud));
+                    initialiserNoeud(noeud, mot);
                     free(mot);
                 }
                 for (i =0; i< maxEnfants; i++)
-                    lireDicoRecur(&((*node)->enfants[i]),fichier);
+                    lireDicoRecur(&((*noeud)->enfants[i]),fichier);
                 return;
             }
             else
@@ -133,53 +133,53 @@ void lireDicoRecur(Noeud **node, FILE *fichier)
     } 
 }
 
-void lireDico(Noeud **node, char *filename)
+void lireDico(Noeud **noeud, char *filename)
 {
     FILE* fichier = NULL;
     fichier = fopen(filename, "r");
 
     if (fichier != NULL)
-        lireDicoRecur(node, fichier);
+        lireDicoRecur(noeud, fichier);
     fclose(fichier);
 }
 
 
-void sauvegarderDicoRecur(Noeud *node, FILE *fichier)
+void sauvegarderDicoRecur(Noeud *noeud, FILE *fichier)
 { 
-    if (node==NULL)
+    if (noeud==NULL)
         fprintf(fichier, "# ");           
     else
     {
     	int i = 0;
-        fprintf(fichier, "%s ", node->chaine);
+        fprintf(fichier, "%s ", noeud->chaine);
         for (i = 0; i < maxEnfants; i++)
-            sauvegarderDicoRecur(node->enfants[i], fichier);    
+            sauvegarderDicoRecur(noeud->enfants[i], fichier);    
     }
 }
 
-void sauvegarderDico(Noeud *node, char *filename)
+void sauvegarderDico(Noeud *noeud, char *filename)
 {
     FILE* fichier = NULL;
     fichier = fopen(filename, "w");
  
     if (fichier != NULL)
-        sauvegarderDicoRecur(node, fichier);
+        sauvegarderDicoRecur(noeud, fichier);
     fclose(fichier);
 }
 
 
-void libererDicoRecur(Noeud *node)
+void libererDicoRecur(Noeud *noeud)
 {
-    if (node!=NULL)
+    if (noeud!=NULL)
     {
     	int i = 0;
         for (i=0; i<maxEnfants; i++)
-            libererDicoRecur(node->enfants[i]);
-        free(node);
+            libererDicoRecur(noeud->enfants[i]);
+        free(noeud);
     }
 }
 
-void libererDico(Noeud *node)
+void libererDico(Noeud *noeud)
 {
-    libererDicoRecur(node);
+    libererDicoRecur(noeud);
 }
