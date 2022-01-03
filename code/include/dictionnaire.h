@@ -18,17 +18,17 @@ int max(int a, int b);
 
 int lev(char chaine1[],char chaine2[]);
 
-void initialiserNoeud(Noeud **node, char *chaine);
+void initialiserNoeud(Noeud **noeud, char *chaine);
 
-void inserer(char *chaine, Noeud **node) ;
+void inserer(char *chaine, Noeud **noeud) ;
 
-void creerDico(Noeud **node, char *filename);
+void creerDico(Noeud **noeud, char *filename);
 
-void lireDico(Noeud **node,char *filename);
+void lireDico(Noeud **noeud,char *filename);
 
-void sauvegarderDico(Noeud *node, char *filename);
+void sauvegarderDico(Noeud *noeud, char *filename);
 
-void libererDico(Noeud *node);
+void libererDico(Noeud *noeud);
 
 
 #endif
